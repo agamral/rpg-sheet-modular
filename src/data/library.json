@@ -1,0 +1,104 @@
+{
+  "weapons": [
+    {
+      "id": "longsword",
+      "name": "Espada Longa",
+      "tags": ["weapon", "sword", "longsword", "melee"],
+      "action": {
+        "type": "attack",
+        "attackRoll": "1d20 + @STR + @PROF",
+        "damageRoll": "1d8 + @STR",
+        "damageType": "slashing"
+      }
+    },
+    {
+      "id": "shortbow",
+      "name": "Arco Curto",
+      "tags": ["weapon", "bow", "ranged"],
+      "action": {
+        "type": "attack",
+        "attackRoll": "1d20 + @DEX + @PROF",
+        "damageRoll": "1d6 + @DEX",
+        "damageType": "piercing"
+      }
+    },
+    {
+      "id": "greataxe",
+      "name": "Machado Grande",
+      "tags": ["weapon", "axe", "greataxe", "melee", "heavy"],
+      "action": {
+        "type": "attack",
+        "attackRoll": "1d20 + @STR + @PROF",
+        "damageRoll": "1d12 + @STR",
+        "damageType": "slashing"
+      }
+    }
+  ],
+  
+  "abilities": {
+    "barbarian": [
+      {
+        "id": "rage",
+        "name": "Rage",
+        "type": "duration",
+        "resourceType": "ability",
+        "uses": { "max": 2 },
+        "duration": { "max": 10 },
+        "recharge": "long-rest",
+        "trigger": ["attack", "damage-taken"],
+        "effect": {
+          "description": "+2 de dano em ataques corpo-a-corpo. Resistência a dano físico.",
+          "damageBonus": 2,
+          "resistances": ["physical"]
+        }
+      },
+      {
+        "id": "reckless_attack",
+        "name": "Ataque Imprudente",
+        "type": "passive",
+        "effect": {
+          "description": "Você pode ter vantagem em ataques corpo-a-corpo, mas inimigos têm vantagem contra você até seu próximo turno."
+        }
+      }
+    ],
+    
+    "fighter": [
+      {
+        "id": "action_surge",
+        "name": "Action Surge",
+        "type": "instant",
+        "resourceType": "ability",
+        "uses": { "max": 1 },
+        "recharge": "short-rest",
+        "effect": {
+          "description": "Você ganha uma ação adicional neste turno."
+        }
+      },
+      {
+        "id": "second_wind",
+        "name": "Second Wind",
+        "type": "instant",
+        "resourceType": "ability",
+        "uses": { "max": 1 },
+        "recharge": "short-rest",
+        "effect": {
+          "description": "Recupere 1d10 + nível de HP como ação bônus."
+        }
+      }
+    ],
+    
+    "wizard": [
+      {
+        "id": "arcane_recovery",
+        "name": "Recuperação Arcana",
+        "type": "instant",
+        "resourceType": "ability",
+        "uses": { "max": 1 },
+        "recharge": "long-rest",
+        "effect": {
+          "description": "Durante um descanso curto, recupere slots de magia com nível total igual à metade do seu nível de mago (mínimo 1)."
+        }
+      }
+    ]
+  }
+}
